@@ -1,5 +1,5 @@
 public class ArchPila {
-    protected Nodo st, fin;
+    protected Nodo1 st, fin;
     boolean Valid = true;
     int Size;
 
@@ -14,7 +14,7 @@ public class ArchPila {
         int tam=dato.length();
         while(i<tam){
             if(dato.charAt(i)=='('){
-                Nodo n = new Nodo('(');
+                Nodo1 n = new Nodo1('(');
                 if(st == null){
                     st = n;
                     fin = n;
@@ -36,7 +36,7 @@ public class ArchPila {
                 }
             }
             if(dato.charAt(i)=='{'){
-                Nodo n = new Nodo('{');
+                Nodo1 n = new Nodo1('{');
                 if(st == null){
                     st = n;
                     fin = n;
@@ -58,7 +58,7 @@ public class ArchPila {
                 }
             }
             if(dato.charAt(i)=='['){
-                Nodo n = new Nodo('[');
+                Nodo1 n = new Nodo1('[');
                 if(st == null){
                     st = n;
                     fin = n;
