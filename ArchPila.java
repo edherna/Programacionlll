@@ -1,33 +1,33 @@
 public class ArchPila {
-    protected Nodo S, end;
-    boolean Verd = true;
-    int tam;
+    protected Nodo st, fin;
+    boolean Valid = true;
+    int Size;
 
     public ArchPila(){
-        this.S = null;
-        this.end = null;
+        this.st = null;
+        this.fin = null;
 
     }
 
-    public void Store(String dato){
+    public void ElementosGuardados(String dato){
         int i=0;
         int tam=dato.length();
         while(i<tam){
             if(dato.charAt(i)=='('){
-                Nodo nuevo = new Nodo('(');
-                if(S == null){
-                    S = nuevo;
-                    end = nuevo;
+                Nodo n = new Nodo('(');
+                if(st == null){
+                    st = n;
+                    fin = n;
                 }else{
-                    end.siguiente = nuevo;
-                    end = nuevo;
+                    fin.next2 = n;
+                    fin = n;
                 }
-                tam++;
+                Size++;
                 }
             else if(dato.charAt(i)==')'){
                 if(estaVacia()){
                     System.out.println("Falso");
-                    Verd = false;
+                    Valid = false;
                     pop();
                     break;
                 }
@@ -36,20 +36,20 @@ public class ArchPila {
                 }
             }
             if(dato.charAt(i)=='{'){
-                Nodo nuevo = new Nodo('{');
-                if(S == null){
-                    S = nuevo;
-                    end = nuevo;
+                Nodo n = new Nodo('{');
+                if(st == null){
+                    st = n;
+                    fin = n;
                 }else{
-                    end.siguiente = nuevo;
-                    end = nuevo;
+                    fin.next2 = n;
+                    fin = n;
                 }
-                tam++;
+                Size++;
                 }
             else if(dato.charAt(i)=='}'){
                 if(estaVacia()){
                     System.out.println("Falso");
-                    Verd = false;
+                    Valid = false;
                     pop();
                     break;
                 }
@@ -58,20 +58,20 @@ public class ArchPila {
                 }
             }
             if(dato.charAt(i)=='['){
-                Nodo nuevo = new Nodo('[');
-                if(S == null){
-                    S = nuevo;
-                    end = nuevo;
+                Nodo n = new Nodo('[');
+                if(st == null){
+                    st = n;
+                    fin = n;
                 }else{
-                    end.siguiente = nuevo;
-                    end = nuevo;
+                    fin.next2 = n;
+                    fin = n;
                 }
-                tam++;
+                Size++;
                 }
             else if(dato.charAt(i)==']'){
                 if(estaVacia()){
                     System.out.println("Falso");
-                    Verd = false;
+                    Valid = false;
                     pop();
                     break;
                 }
@@ -82,29 +82,29 @@ public class ArchPila {
             i++;
         }
         
-        if (estaVacia()&& Verd==true){
-                System.out.println("Es correcto :3");
-                Verd=true;
+        if (estaVacia()&& Valid==true){
+                System.out.println("Correcto");
+                Valid=true;
         }else{
-                S=null;
-                System.out.println("Es Incorrecto :(");
-                Verd=true;
+                st=null;
+                System.out.println("Incorrecto");
+                Valid=true;
         }
     }
 
     public void pop(){
-        if(S != null){
-            S = S.siguiente;
+        if(st != null){
+            st = st.next2;
         }
     }
 
     public boolean estaVacia(){
-        if(S == null){
+        if(st == null){
             return true;
         }
         else{
             
-            Verd=true;
+            Valid=true;
             return false;
         }
     }
